@@ -18,6 +18,15 @@ soup = BeautifulSoup(page, "html.parser")
 # 첫번째 <p>만 건색
 # print(soup.find('p'))
 
-print(soup.find_all ("p", class_="outer-text"))
+# print(soup.find_all ("p", class_="outer-text"))
 
+# print(soup.find_all ("p", attrs={"class" : "outer-text"}))
 
+# 특정태그(id)
+# print (soup.find(id="first"))
+
+# 태그 내부에 컨텐츠 가져오기 (Text 속성)
+for tag in soup.find_all("p"):
+    title = tag.text.strip()
+    title = title.replace("\n","")
+    print(title)
