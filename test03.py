@@ -36,32 +36,32 @@ soup = BeautifulSoup(html, 'html.parser')
 # tags_span_class_price = soup.select('span.price')
 # print(tags_span_class_price)
 
-#상위 구조 활용
-#정보가 담긴 태그의 속성만으로는 찾기가 어려울 경우 부모 태그 아래에 있는지 등의 
-#정보를 추가해서 찾을 수 있다.
-#한단계 아래를 의미할 때는 '>'기호를 사용한다. 
-#상위 태그는 부모태그, 하위 태그는 자식 태그라고 부른다. 
+# #상위 구조 활용
+# #정보가 담긴 태그의 속성만으로는 찾기가 어려울 경우 부모 태그 아래에 있는지 등의 
+# #정보를 추가해서 찾을 수 있다.
+# #한단계 아래를 의미할 때는 '>'기호를 사용한다. 
+# #상위 태그는 부모태그, 하위 태그는 자식 태그라고 부른다. 
 # print("---상위 구조 사용---")
 # tags_name = soup.select('span.name')
 # print(tags_name)
 
-# #이때 맥북프로를 제외하고 맥북에어만 찾기 위해 맥북에어가 포함된 
-# #부모 태그 정보를 추가한다. 
+# # #이때 맥북프로를 제외하고 맥북에어만 찾기 위해 맥북에어가 포함된 
+# # #부모 태그 정보를 추가한다. 
 # tags_notebook1 = soup.select('#notebook1 > span.name')
 # print(tags_notebook1) 
 
-#태그 위치로 위치 찾기2 
-#결과는 동일하지만 첫번째 코드는 상위태그1(div.sale)
-#바로 아래에 있는 상위 태그2(#notebook1)을 찾고,
-#상위태그2(#notebook1) 바로 아래에 있는 태그(span.name)을 모두 찾았다. 
-#두번째 코드는 상위태그(div.sale) 바로 아래에 있는 태그뿐 아니라 
-#몇 단계 아래의 태그 중에서 태그 정보(span.name)를 모두 찾았다. 
+# #태그 위치로 위치 찾기2 
+# #결과는 동일하지만 첫번째 코드는 상위태그1(div.sale)
+# #바로 아래에 있는 상위 태그2(#notebook1)을 찾고,
+# #상위태그2(#notebook1) 바로 아래에 있는 태그(span.name)을 모두 찾았다. 
+# #두번째 코드는 상위태그(div.sale) 바로 아래에 있는 태그뿐 아니라 
+# #몇 단계 아래의 태그 중에서 태그 정보(span.name)를 모두 찾았다. 
 tags_notebook2 = soup.select('div.sale > #notebook1 > span.name')
 tags_notebook3 = soup.select('div.sale span.name')
 print(tags_notebook2)
 print(tags_notebook3)
 
-#태그 그룹에서 하나의 태그만 선택
+# #태그 그룹에서 하나의 태그만 선택
 # tags = soup.select('span.name')
 # tag_1 = tags[0]
 # print(tag_1)
